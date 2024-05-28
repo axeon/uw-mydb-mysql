@@ -1,4 +1,4 @@
-FROM mysql:8.0.37
+FROM mysql:8.4.0
 
 COPY *.sh /
 

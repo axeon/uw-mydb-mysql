@@ -3,7 +3,7 @@ stages:
 
 variables:
   APP_NAME: uw-mydb-mysql
-  APP_VERSION: 8.0.37
+  APP_VERSION: 8.4.0
   REGISTRY: "dev.xili.pub:5000"
 
 # 编译
