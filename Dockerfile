@@ -4,6 +4,6 @@ COPY *.sh /
 
 RUN chmod +x *.sh
 
-ENTRYPOINT ["/mydbEntrypoint.sh"]
+ENTRYPOINT ["/mydb-entrypoint.sh"]
 
 CMD ["mysqld"]
