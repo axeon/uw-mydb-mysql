@@ -8,7 +8,7 @@ mydb_log(){
 if [ -z "${MYDB_CENTER_HOST}" ]; then
     mydb_log "MYDB_CENTER_HOST is empty, please check MYDB_CENTER_HOST config!"
 else
-    mydb_log "MYDB_CENTER_HOST=${!MYDB_CENTER_HOST}"
+    mydb_log "MYDB_CENTER_HOST=${MYDB_CENTER_HOST}"
     # main loop
     while true
     do
