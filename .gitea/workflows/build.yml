@@ -1,0 +1,17 @@
+name: build
+on: push
+env:
+  REGISTRY: "dev.xili.pub:5000"
+  APP_NAME: uw-mydb-mysql
+  APP_VERSION: 8.4.3
+
+jobs:
+  build:
+    runs-on: [ubuntu-latest]
+    steps:
+      - name: build
+        run: |
+          git config --global user.token ${{ gitea.token }}
+          git clone -q ${{gitea.server_url}}/${{ gitea.repository }}.git .
+          docker build -t ${REGISTRY}/${APP_NAME}:${APP_VERSION} .
+          docker push ${REGISTRY}/${APP_NAME}:${APP_VERSION}
