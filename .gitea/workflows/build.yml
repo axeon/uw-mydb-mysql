@@ -14,5 +14,6 @@ jobs:
       - name: build
         run: |
           git clone -q ${{gitea.server_url}}/${{ gitea.repository }}.git .
-          docker build -t ${REGISTRY}/${APP_NAME}:${APP_VERSION} .
-          docker push ${REGISTRY}/${APP_NAME}:${APP_VERSION}
+          grep -q qemu-aarch64 /proc/sys/fs/binfmt_misc/status 2>/dev/null || docker run --rm --privileged multiarch/qemu-user-static --reset -p yes
+          docker buildx use multiarch 2>/dev/null || docker buildx create --use --name multiarch --driver docker-container --platform linux/amd64,linux/arm64
+          docker buildx build --platform linux/amd64,linux/arm64 --build-arg APP_NAME=${APP_NAME} -t ${REGISTRY_SERVER}/${APP_NAME}:${APP_VERSION} --push .
