@@ -3,7 +3,7 @@ on:
   push:
     branches: [main]
 env:
-  REGISTRY: "dev.xili.pub:5000"
+  REGISTRY_SERVER: ${{vars.REGISTRY_SERVER}}
   APP_NAME: uw-mydb-mysql
   APP_VERSION: 8.4.6
 
