@@ -5,7 +5,7 @@ on:
 env:
   REGISTRY_SERVER: ${{vars.REGISTRY_SERVER}}
   APP_NAME: uw-mydb-mysql
-  APP_VERSION: 8.4.9
+  APP_VERSION: 9.7.1
 
 jobs:
   build:
